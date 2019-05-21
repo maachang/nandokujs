@@ -1,9 +1,9 @@
 {
   "name": "nandokujs",
   "bin": {
-    "msful": "index.js"
+    "nandokujs": "index.js"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "nandokujs is an obfuscation tool for obfuscating javascript files to be published on the Web and making it difficult to analyze the contents.",
   "main": "index.js",
   "scripts": {
