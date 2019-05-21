@@ -48,4 +48,27 @@ $ nandokujs [js file name] [tally code]
 
 ```
 
+# サンプル
+
+コマンドで難読化.
+
+```cmd
+
+nandokujs cbox-min.js test
+
+```
+
+jsファイルを利用するhtmlに以下の呼び出し記載.
+
+```html
+
+<script>
+  var _$tallyCode = "test";
+</script>
+<script src="cbox-min.js.cipher.js"></script>
+
+```
+
+# 最後に
+
 このツールによって、Web開発にとって `お得になる` ことを願っています.

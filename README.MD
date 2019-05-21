@@ -48,4 +48,27 @@ In that case, it is necessary to code as follows for the javascript caller to pu
 
 ```
 
+# sample
+
+Obfuscation with command.
+
+```cmd
+
+nandokujs cbox-min.js test
+
+```
+
+The following call is described in html using js file.
+
+```html
+
+<script>
+  var _$tallyCode = "test";
+</script>
+<script src="cbox-min.js.cipher.js"></script>
+
+```
+
+# Finally
+
 With this tool, I hope to be a good deal for web development.
