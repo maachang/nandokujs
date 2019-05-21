@@ -1,0 +1,29 @@
+{
+  "name": "cipherjs",
+  "bin": {
+    "msful": "index.js"
+  },
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cipher",
+    "js",
+    "obfuscation"
+  ],
+  "author": "masahito suzuki <maachang@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maachang/cipherjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maachang/cipherjs/issues"
+  },
+  "homepage": "https://github.com/maachang/cipherjs#readme",
+  "dependencies": {},
+  "devDependencies": {}
+}
