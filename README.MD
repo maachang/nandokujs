@@ -6,6 +6,14 @@ You can make your `keycode` mandatory for running javascript files, with your ow
 
 In this way, javascript files are obfuscated, so important logic is not exposed to the Web in plain text.
 
+# Installation
+
+※ It is assumed that nodejs is installed and npm can be used.
+
+```sh
+$ npm install -g cipherjs
+```
+
 # How to use
 
 The usage can be confirmed by executing the command.
