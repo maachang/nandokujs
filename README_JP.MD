@@ -1,5 +1,11 @@
 # nandokujs とは
 
+<p align="center">
+  <a href="https://www.npmjs.com/package/nandokujs"><img src="https://img.shields.io/npm/dt/nandokujs.svg" alt="Downloads"></a>
+  <a href="https://www.npmjs.com/package/nandokujs"><img src="https://img.shields.io/npm/v/nandokujs.svg" alt="Version"></a>
+  <a href="https://www.npmjs.com/package/nandokujs"><img src="https://img.shields.io/npm/l/nandokujs.svg" alt="License"></a>
+</p>
+
 nandokujsは、Webに公開するjavascriptファイルを難読化し、内容を解析しづらくするための、難読化ツールです.
 
 独自の `割符コード` により `キーコード` が、javascriptファイルの実行に必須とすることもできます.

@@ -1,5 +1,11 @@
 # What is nandokujs
 
+<p align="center">
+  <a href="https://www.npmjs.com/package/nandokujs"><img src="https://img.shields.io/npm/dt/nandokujs.svg" alt="Downloads"></a>
+  <a href="https://www.npmjs.com/package/nandokujs"><img src="https://img.shields.io/npm/v/nandokujs.svg" alt="Version"></a>
+  <a href="https://www.npmjs.com/package/nandokujs"><img src="https://img.shields.io/npm/l/nandokujs.svg" alt="License"></a>
+</p>
+
 nandokujs is an obfuscation tool for obfuscating javascript files to be published on the Web and making it difficult to analyze the contents.
 
 You can make your `keycode` mandatory for running javascript files, with your own `tally code`.
