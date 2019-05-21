@@ -40,10 +40,10 @@
 
   // client.jsを取得.
   var fs = require("fs");
-  var client = fs.readFileSync('./lib/client/client.min.js', "base64");
-  fs.writeFileSync('./lib/client/client.base64.js', client);
-  client = file.readByString("./lib/client/client.base64.js");
-  file.removeFile("./lib/client/client.base64.js");
+  var client = fs.readFileSync(__dirname + '/./lib/client/client.min.js', "base64");
+  fs.writeFileSync(__dirname + '/./lib/client/client.base64.js', client);
+  client = file.readByString(__dirname + '/./lib/client/client.base64.js');
+  file.removeFile(__dirname + '/./lib/client/client.base64.js');
   fs = null;
 
   // ランダムキーを取得.
