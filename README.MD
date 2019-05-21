@@ -54,13 +54,13 @@ In that case, it is necessary to code as follows for the javascript caller to pu
 
 ```
 
-# sample
+# exsample
 
 Obfuscation with command.
 
 ```cmd
 
-nandokujs cbox-min.js test
+$ nandokujs cbox-min.js test
 
 ```
 

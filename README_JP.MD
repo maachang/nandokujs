@@ -60,7 +60,7 @@ $ nandokujs [js file name] [tally code]
 
 ```cmd
 
-nandokujs cbox-min.js test
+$ nandokujs cbox-min.js test
 
 ```
 
