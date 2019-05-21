@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /*!
- * cipherjs.
+ * nandokujs.
  * Copyright(c) 2019 maachang.
  * MIT Licensed
  */
@@ -17,7 +17,7 @@
   // 変換対象のバイナリを設定します.
   var name = process.argv[2]
   if(!name || name == "" || name == "-h" || name == "--help") {
-    console.log("$ cipherjs [js file name] [tally code]")
+    console.log("$ nandokujs [js file name] [tally code]")
     console.log("  [js file name]  Set the js file name to be converted.")
     console.log("  [tally code]  Set tally code.")
     console.log("                html side js call (<script src='target js'></script>)に");
@@ -25,7 +25,7 @@
     console.log("                Define.");
     console.log("                If you do not use it, please do not set it.");
     console.log("");
-    console.log(" Files obfuscated by cipherjs are output as [js file name] .cipher.js.");
+    console.log(" Files obfuscated by nandokujs are output as [js file name] .cipher.js.");
     console.log("");
     return false;
   }

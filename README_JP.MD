@@ -1,6 +1,6 @@
-# cipherjs とは
+# nandokujs とは
 
-cipherjsは、Webに公開するjavascriptファイルを難読化し、内容を解析しづらくするための、難読化ツールです.
+nandokujsは、Webに公開するjavascriptファイルを難読化し、内容を解析しづらくするための、難読化ツールです.
 
 独自の `割符コード` により `キーコード` が、javascriptファイルの実行に必須とすることもできます.
 
@@ -11,17 +11,17 @@ cipherjsは、Webに公開するjavascriptファイルを難読化し、内容�
 ※ nodejsがインストールされており npm が利用できることが前提です。
 
 ```sh
-$ npm install -g cipherjs
+$ npm install -g nandokujs
 ```
 
 # 使い方について
 
 使い方は、コマンドを実行することで、確認可能です.
 
-cipherjsで難読化されたファイルは `[js file name].cipher.js` と言う名前に出力されます.
+nandokujsで難読化されたファイルは `[js file name].cipher.js` と言う名前に出力されます.
 
 ```
-$ cipherjs [js file name] [tally code]
+$ nandokujs [js file name] [tally code]
   [js file name]  Set the js file name to be converted.
   [tally code]  Set tally code.
                 html side js call (<script src='target js'></script>)に
@@ -29,7 +29,7 @@ $ cipherjs [js file name] [tally code]
                 Define.
                 If you do not use it, please do not set it.
 
- Files obfuscated by cipherjs are output as [js file name] .cipher.js.
+ Files obfuscated by nandokujs are output as [js file name] .cipher.js.
 
 ```
 
@@ -44,7 +44,7 @@ $ cipherjs [js file name] [tally code]
 <script>
   var _$tallyCode = "指定した割符コード";
 </script>
-<script src="cipherjsで難読化されたjavascript.cipher.js"></script>
+<script src="nandokujsで難読化されたjavascript.cipher.js"></script>
 
 ```
 

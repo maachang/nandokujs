@@ -1,10 +1,10 @@
 {
-  "name": "cipherjs",
+  "name": "nandokujs",
   "bin": {
     "msful": "index.js"
   },
   "version": "0.0.1",
-  "description": "",
+  "description": "nandokujs is an obfuscation tool for obfuscating javascript files to be published on the Web and making it difficult to analyze the contents.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,12 +18,15 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maachang/cipherjs.git"
+    "url": "git+https://github.com/maachang/nandokujs.git"
   },
   "bugs": {
-    "url": "https://github.com/maachang/cipherjs/issues"
+    "url": "https://github.com/maachang/nandokujs/issues"
   },
-  "homepage": "https://github.com/maachang/cipherjs#readme",
+  "homepage": "https://github.com/maachang/nandokujs#readme",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {},
+  "directories": {
+    "lib": "lib"
+  }
 }

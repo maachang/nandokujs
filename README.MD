@@ -1,6 +1,6 @@
-# What is cipherjs
+# What is nandokujs
 
-cipherjs is an obfuscation tool for obfuscating javascript files to be published on the Web and making it difficult to analyze the contents.
+nandokujs is an obfuscation tool for obfuscating javascript files to be published on the Web and making it difficult to analyze the contents.
 
 You can make your `keycode` mandatory for running javascript files, with your own `tally code`.
 
@@ -11,17 +11,17 @@ In this way, javascript files are obfuscated, so important logic is not exposed 
 ※ It is assumed that nodejs is installed and npm can be used.
 
 ```sh
-$ npm install -g cipherjs
+$ npm install -g nandokujs
 ```
 
 # How to use
 
 The usage can be confirmed by executing the command.
 
-Files obfuscated by cipherjs are output as `[js file name].cipher.js`.
+Files obfuscated by nandokujs are output as `[js file name].cipher.js`.
 
 ```
-$ cipherjs [js file name] [tally code]
+$ nandokujs [js file name] [tally code]
   [js file name]  Set the js file name to be converted.
   [tally code]  Set tally code.
                 html side js call (<script src='target js'></script>)に
@@ -29,7 +29,7 @@ $ cipherjs [js file name] [tally code]
                 Define.
                 If you do not use it, please do not set it.
 
- Files obfuscated by cipherjs are output as [js file name] .cipher.js.
+ Files obfuscated by nandokujs are output as [js file name] .cipher.js.
 
 ```
 
