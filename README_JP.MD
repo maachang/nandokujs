@@ -24,7 +24,7 @@ $ npm install -g nandokujs
 
 使い方は、コマンドを実行することで、確認可能です.
 
-nandokujsで難読化されたファイルは `[js file name].cipher.js` と言う名前に出力されます.
+nandokujsで難読化されたファイルは `[js file name].nan.js` と言う名前に出力されます.
 
 ```
 $ nandokujs [js file name] [tally code]
@@ -35,7 +35,7 @@ $ nandokujs [js file name] [tally code]
                 Define.
                 If you do not use it, please do not set it.
 
- Files obfuscated by nandokujs are output as [js file name] .cipher.js.
+ Files obfuscated by nandokujs are output as [js file name] .nan.js.
 
 ```
 
@@ -50,7 +50,7 @@ $ nandokujs [js file name] [tally code]
 <script>
   var _$tallyCode = "指定した割符コード";
 </script>
-<script src="nandokujsで難読化されたjavascript.cipher.js"></script>
+<script src="nandokujsで難読化されたjavascript.nan.js"></script>
 
 ```
 
@@ -71,7 +71,7 @@ jsファイルを利用するhtmlに以下の呼び出し記載.
 <script>
   var _$tallyCode = "test";
 </script>
-<script src="cbox-min.js.cipher.js"></script>
+<script src="cbox-min.js.nan.js"></script>
 
 ```
 

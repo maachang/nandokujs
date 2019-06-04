@@ -24,7 +24,7 @@ $ npm install -g nandokujs
 
 The usage can be confirmed by executing the command.
 
-Files obfuscated by nandokujs are output as `[js file name].cipher.js`.
+Files obfuscated by nandokujs are output as `[js file name].nan.js`.
 
 ```
 $ nandokujs [js file name] [tally code]
@@ -35,7 +35,7 @@ $ nandokujs [js file name] [tally code]
                 Define.
                 If you do not use it, please do not set it.
 
- Files obfuscated by nandokujs are output as [js file name] .cipher.js.
+ Files obfuscated by nandokujs are output as [js file name] .nan.js.
 
 ```
 
@@ -50,7 +50,7 @@ In that case, it is necessary to code as follows for the javascript caller to pu
 <script>
   var _$tallyCode = "tally code";
 </script>
-<script src="target javascript.cipher.js"></script>
+<script src="target javascript.nan.js"></script>
 
 ```
 
@@ -71,7 +71,7 @@ The following call is described in html using js file.
 <script>
   var _$tallyCode = "test";
 </script>
-<script src="cbox-min.js.cipher.js"></script>
+<script src="cbox-min.js.nan.js"></script>
 
 ```
 

@@ -25,7 +25,7 @@
     console.log("                Define.");
     console.log("                If you do not use it, please do not set it.");
     console.log("");
-    console.log(" Files obfuscated by nandokujs are output as [js file name] .cipher.js.");
+    console.log(" Files obfuscated by nandokujs are output as [js file name] .nan.js.");
     console.log("");
     return false;
   }
@@ -61,24 +61,23 @@
 
   // ファイル出力.
   var buf = "";
-  buf += "if(!window[\"global\"]) window[\"global\"] = window;\n" +
-  "(function(_g) {\n" +
-  "var _$=function(n){var r='';for(var i=0;i<n.length;i++)r+=String.fromCharCode(n[i]);return r;};" +
-  "(new Function(_$([95,107,107]),_$([95,106,115]),_$([95,116,116]), _g[_$([97,116,111,98])](\"" + client + "\")))";
+  buf += "(function($$){" +
+  "var $=function(){var n=arguments,r='',i=0;while(i<n.length)r+=String.fromCharCode(n[i++]+0x1e);return r;};" +
+  "(new Function($(65,77,77),$(65,76,85),$(65,86,86), $$[$(67,86,81,68)](\"" + client + "\")))";
   buf += "(\"" + fcipher.tally.enc(key, tallyCode) + "\", \"" + jsCode + "\"";
   key = null;
   jsCode = null;
   if(tallyCode) {
     // js側は、window._$tallyCodeを定義.
-    buf += ", _g[_$([95,36,116,97,108,108,121,67,111,100,101])]";
+    buf += ",$$[$(65,6,86,67,78,78,91,37,81,70,71)]";
   } else {
-    buf += ", null";
+    buf += ",null";
   }
-  buf += ");\n";
-  buf += "})(global);\n";
+  buf += ");";
+  buf += "})(window);";
 
   // jsコード出力.
-  file.writeByString(name + ".cipher.js", buf);
+  file.writeByString(name + ".nan.js", buf);
 
   return true;
 })();
