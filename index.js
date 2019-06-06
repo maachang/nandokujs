@@ -57,7 +57,7 @@
   jsCode = fcomp.freeze(jsCode);
   jsCode = fcipher.benc(jsCode, fcipher.key(key, "fcipher.js"), "_");
 
-  // $()処理難読化の
+  // $()処理難読化.
   var firstFunc = function() {
     var base = "this['\\44']=(function(){var _A=['','\\x66\\x72\\x6F\\x6D\\x43\\x68\\x61\\x72\\x43\\x6F\\x64\\x65','\\x6C\\x65\\x6E\\x67\\x74\\x68', '\\x53\\x74\\x72\\x69\\x6e\\x67','\\x30\\x78\\x31\\x65'];return function(){var _B=arguments,_C=_A[0],_D=0;while(_D< _B[_A[2]]){_C+=this[_A[3]][_A[1]](_B[_D++]+(_A[4]|0))};return _C};})();";
     var keys = ["_A", "_B", "_C", "_D"];
@@ -83,9 +83,6 @@
     }
     return base;
   }
-
-  
-  
 
   // ファイル出力.
   var buf = "";
