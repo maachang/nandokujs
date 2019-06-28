@@ -18,7 +18,7 @@
   // 変換対象のバイナリを設定します.
   var name = process.argv[2]
   if(!name || name == "" || name == "-h" || name == "--help") {
-    console.log("$ nandokujs [js file name] [tally code]")
+    console.log("$ nandokujs [js file name] [execute eval] [tally code]")
     console.log("  [js file name]  Set the js file name to be converted.")
     console.log("  [execute eval] When [true] is set, when [false] is set in eval,")
     console.log("                 it expands by location. ")

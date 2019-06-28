@@ -29,7 +29,7 @@ The usage can be confirmed by executing the command.
 Files obfuscated by nandokujs are output as `[js file name].nan.js`.
 
 ```
-$ nandokujs [js file name] [tally code]
+$ nandokujs [js file name] [execute eval] [tally code]
   [js file name]  Set the js file name to be converted.
   [execute eval] When [true] is set, when [false] is set in eval,
                  it expands by location.

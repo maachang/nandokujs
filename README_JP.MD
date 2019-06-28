@@ -6,7 +6,7 @@
   <a href="https://www.npmjs.com/package/nandokujs"><img src="https://img.shields.io/npm/l/nandokujs.svg" alt="License"></a>
 </p>
 
-日本語の説明は [こちら](https://github.com/maachang/nandokujs/blob/master/README_JP.MD)
+English documents [here](https://github.com/maachang/nandokujs/blob/master/README.MD)
 
 nandokujsは、Webに公開するjavascriptファイルを難読化し、内容を解析しづらくするための、難読化ツールです.
 
@@ -29,7 +29,7 @@ $ npm install -g nandokujs
 nandokujsで難読化されたファイルは `[js file name].nan.js` と言う名前に出力されます.
 
 ```
-$ nandokujs [js file name] [tally code]
+$ nandokujs [js file name] [execute eval] [tally code]
   [js file name]  Set the js file name to be converted.
   [execute eval] When [true] is set, when [false] is set in eval,
                  it expands by location.
