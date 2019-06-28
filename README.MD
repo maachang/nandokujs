@@ -14,6 +14,10 @@ You can make your `keycode` mandatory for running javascript files, with your ow
 
 In this way, javascript files are obfuscated, so important logic is not exposed to the Web in plain text.
 
+_
+
+_
+
 # Installation
 
 ※ It is assumed that nodejs is installed and npm can be used.
@@ -22,6 +26,10 @@ In this way, javascript files are obfuscated, so important logic is not exposed 
 $ npm install -g nandokujs
 ```
 
+_
+
+_
+
 # How to use
 
 The usage can be confirmed by executing the command.
@@ -29,44 +37,56 @@ The usage can be confirmed by executing the command.
 Files obfuscated by nandokujs are output as `[js file name].nan.js`.
 
 ```
-$ nandokujs [js file name] [execute eval] [tally code]
-  [js file name]  Set the js file name to be converted.
-  [execute eval] When [true] is set, when [false] is set in eval,
+$ nandokujs -j [js file name] -m [execute eval] -t [tally code]
+  -j (--js) [js file name]  Set the js file name to be converted.
+  -m (--mode) [execute eval] When [true] is set, when [false] is set in eval,
                  it expands by location.
-  [tally code]  Set tally code.
-                html side js call (<script src='target js'></script>)に
+  -t (--tally) [tally code]  Set tally code.
+                html side js call (<script src='target js'></script>)
                   <script> var _$tallyCode = 'tally code'; </script>
                 Define.
                 If you do not use it, please do not set it.
+  -v (--version) Version information will be returned.
+  -h (--help) Help information will be returned.
 
- Files obfuscated by nandokujs are output as [js file name] .nan.js.
+ Files obfuscated by nandokujs are output as [js file name].nan.js.
 
 ```
+-j or --js Set the javascript file you want to convert.
 
-Set the javascript file to be converted to the first argument.
-
-Set the expansion condition with the second argument.
-
+-m or --mode Set expansion conditions.
+```
 When [true] Expand obfuscated information with eval.
 
 [false] Extract obfuscated information with location = "javascript:".
 
 If this setting is omitted, it will be treated as [true].
 As a reason to do this setting, there are cases where you do not want to extract obfuscated information in eval, but you want to expand it with location = "javascript:".
+For example, when an error occurs during eval execution.
 It is used in such a case.
+```
 
-The second argument is optional, but you can set it to a `tally code`.
-
+-t or --tally You can optionally set the `Tally code`.
+```
 In that case, it is necessary to code as follows for the javascript caller to publish on the web.
+```
 
 ```html
 
 <script>
   var _$tallyCode = "tally code";
 </script>
-<script src="target javascript.nan.js"></script>
+<script src="[target javascript].nan.js"></script>
 
 ```
+
+-v or --version Display the version.
+
+-h or --help Display help information.
+
+_
+
+_
 
 # exsample
 
@@ -74,7 +94,7 @@ Obfuscation with command.
 
 ```cmd
 
-$ nandokujs cbox-min.js test
+$ nandokujs -j cbox-min.js -t test
 
 ```
 
@@ -88,6 +108,10 @@ The following call is described in html using js file.
 <script src="cbox-min.js.nan.js"></script>
 
 ```
+
+_
+
+_
 
 # Finally
 

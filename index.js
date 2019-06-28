@@ -15,28 +15,76 @@
   var nums = require("./lib/nums");
   var strs = require("./lib/strs");
 
-  // 変換対象のバイナリを設定します.
-  var name = process.argv[2]
-  if(!name || name == "" || name == "-h" || name == "--help") {
-    console.log("$ nandokujs [js file name] [execute eval] [tally code]")
-    console.log("  [js file name]  Set the js file name to be converted.")
-    console.log("  [execute eval] When [true] is set, when [false] is set in eval,")
+  // パラメータ引数を取得.
+  var _args = function(c, use) {
+    use = use == true || use == "true";
+    for(var i = 2; i < process.argv.length; i ++) {
+      if(process.argv[i] == c) {
+        if(use) {
+          return true;
+        }
+        return process.argv[i+1];
+      }
+    }
+    return use ? false : undefined;
+  }
+
+  // コマンド名を取得.
+  var _commandName = function() {
+    var v = JSON.parse(file.readByString("./package.json"));
+    return v.name;
+  }
+
+  // バージョン情報を出力.
+  var _version = function() {
+    var v = JSON.parse(file.readByString("./package.json"));
+    return v.version;
+  }
+
+  // ヘルプ情報.
+  var _help = function() {
+    console.log(_commandName() + " version: " + _version());
+    console.log();
+    console.log("$ nandokujs -j [js file name] -m [execute eval] -t [tally code]")
+    console.log("  -j (--js) [js file name]  Set the js file name to be converted.")
+    console.log("  -m (--mode) [execute eval] When [true] is set, when [false] is set in eval,")
     console.log("                 it expands by location. ")
-    console.log("  [tally code]  Set tally code.")
+    console.log("  -t (--tally) [tally code]  Set tally code.")
     console.log("                html side js call (<script src='target js'></script>)");
     console.log("                  <script> var _$tallyCode = 'tally code'; </script>");
     console.log("                Define.");
     console.log("                If you do not use it, please do not set it.");
+    console.log("  -v (--version) Version information will be returned.");
+    console.log("  -h (--help) Help information will be returned.");
     console.log("");
-    console.log(" Files obfuscated by nandokujs are output as [js file name] .nan.js.");
+    console.log(" Files obfuscated by nandokujs are output as [js file name].nan.js.");
     console.log("");
+  }
+
+  // 変換対象のバイナリを設定します.
+  var name = _args("-j") || _args("--js");
+  var execEval = _args("-m") || _args("--mode");
+  var tallyCode = _args("-t") || _args("--tally");
+  var versionFlg = _args("-v", true) || _args("--version", true);
+  var helpFLg = _args("-h", true) || _args("--help", true);
+
+  if(!name || name == "") {
+    helpFLg = true;
+  }
+
+  // version.
+  if(versionFlg) {
+    console.log(_version());
     return false;
   }
-  // JSファイルを取得.
-  var jsCode = file.readByString(name);
+
+  // help
+  if(helpFLg) {
+    _help();
+    return false;
+  }
 
   // exec eval.
-  var execEval = process.argv[3];
   if(!execEval || execEval == "" || execEval == "true" || execEval == true) {
     execEval = true;
   } else {
@@ -44,10 +92,12 @@
   }
 
   // 割符コードを設定します.
-  var tallyCode = process.argv[4];
   if(!tallyCode || tallyCode == "") {
     tallyCode = null;
   }
+
+  // JSファイルを取得.
+  var jsCode = file.readByString(name);
 
   // client.jsを取得.
   var fs = require("fs");

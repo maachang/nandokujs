@@ -14,6 +14,10 @@ nandokujsは、Webに公開するjavascriptファイルを難読化し、内容�
 
 このように、簡単ですが javascriptファイルは難読化されるので、大事なロジックが平文でWebに公開されなくなります.
 
+_
+
+_
+
 # インストール
 
 ※ nodejsがインストールされており npm が利用できることが前提です。
@@ -22,6 +26,10 @@ nandokujsは、Webに公開するjavascriptファイルを難読化し、内容�
 $ npm install -g nandokujs
 ```
 
+_
+
+_
+
 # 使い方について
 
 使い方は、コマンドを実行することで、確認可能です.
@@ -29,44 +37,57 @@ $ npm install -g nandokujs
 nandokujsで難読化されたファイルは `[js file name].nan.js` と言う名前に出力されます.
 
 ```
-$ nandokujs [js file name] [execute eval] [tally code]
-  [js file name]  Set the js file name to be converted.
-  [execute eval] When [true] is set, when [false] is set in eval,
+$ nandokujs -j [js file name] -m [execute eval] -t [tally code]
+  -j (--js) [js file name]  Set the js file name to be converted.
+  -m (--mode) [execute eval] When [true] is set, when [false] is set in eval,
                  it expands by location.
-  [tally code]  Set tally code.
-                html side js call (<script src='target js'></script>)に
+  -t (--tally) [tally code]  Set tally code.
+                html side js call (<script src='target js'></script>)
                   <script> var _$tallyCode = 'tally code'; </script>
                 Define.
                 If you do not use it, please do not set it.
+  -v (--version) Version information will be returned.
+  -h (--help) Help information will be returned.
 
- Files obfuscated by nandokujs are output as [js file name] .nan.js.
+ Files obfuscated by nandokujs are output as [js file name].nan.js.
 
 ```
 
-第一引数に、変換したい javascriptファイルを設定します. 
+-j or --js 変換したい javascriptファイルを設定します. 
 
-第二引数で、展開条件を設定します。
-
+-m or --mode 展開条件を設定します。
+```
 [true]の場合 evalで難読化された情報を展開します。
 
 [false]の場合 location="javascript:"で難読化された情報を展開します。
 
 この設定を省略した場合は[true]扱いになります。
 この設定を行う理由として、eval で難読化された情報を展開させたくなくて location="javascript:" で展開させたい場合があると思います。
+eval実行でエラーになる場合などです。
 そのような場合に利用します。
+```
 
-第三引数には、任意ですが `割符コード` を設定できます.
-
+-t or --tally 任意で `割符コード` を設定できます.
+```
 その場合は、webに公開するjavascript呼び出し元に対して、以下のようにコーディングする必要があります.
+```
 
 ```html
 
 <script>
   var _$tallyCode = "指定した割符コード";
 </script>
-<script src="nandokujsで難読化されたjavascript.nan.js"></script>
+<script src="[nandokujsで難読化されたjavascript].nan.js"></script>
 
 ```
+
+-v or --version バージョンを表示します.
+
+-h or --help ヘルプ情報を表示します.
+
+_
+
+_
 
 # サンプル
 
@@ -74,7 +95,7 @@ $ nandokujs [js file name] [execute eval] [tally code]
 
 ```cmd
 
-$ nandokujs cbox-min.js test
+$ nandokujs -j cbox-min.js -t test
 
 ```
 
@@ -88,6 +109,10 @@ jsファイルを利用するhtmlに以下の呼び出し記載.
 <script src="cbox-min.js.nan.js"></script>
 
 ```
+
+_
+
+_
 
 # 最後に
 
