@@ -6,6 +6,8 @@
   <a href="https://www.npmjs.com/package/nandokujs"><img src="https://img.shields.io/npm/l/nandokujs.svg" alt="License"></a>
 </p>
 
+日本語の説明は [こちら](https://github.com/maachang/nandokujs/blob/master/README_JP.MD)
+
 nandokujsは、Webに公開するjavascriptファイルを難読化し、内容を解析しづらくするための、難読化ツールです.
 
 独自の `割符コード` により `キーコード` が、javascriptファイルの実行に必須とすることもできます.
@@ -29,6 +31,8 @@ nandokujsで難読化されたファイルは `[js file name].nan.js` と言う�
 ```
 $ nandokujs [js file name] [tally code]
   [js file name]  Set the js file name to be converted.
+  [execute eval] When [true] is set, when [false] is set in eval,
+                 it expands by location.
   [tally code]  Set tally code.
                 html side js call (<script src='target js'></script>)に
                   <script> var _$tallyCode = 'tally code'; </script>
@@ -41,7 +45,17 @@ $ nandokujs [js file name] [tally code]
 
 第一引数に、変換したい javascriptファイルを設定します. 
 
-第二引数には、任意ですが `割符コード` を設定できます.
+第二引数で、展開条件を設定します。
+
+[true]の場合 evalで難読化された情報を展開します。
+
+[false]の場合 location="javascript:"で難読化された情報を展開します。
+
+この設定を省略した場合は[true]扱いになります。
+この設定を行う理由として、eval で難読化された情報を展開させたくなくて location="javascript:" で展開させたい場合があると思います。
+そのような場合に利用します。
+
+第三引数には、任意ですが `割符コード` を設定できます.
 
 その場合は、webに公開するjavascript呼び出し元に対して、以下のようにコーディングする必要があります.
 
