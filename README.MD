@@ -40,14 +40,14 @@ Files obfuscated by nandokujs are output as `[js file name].nan.js`.
 $ nandokujs -j [js file name] -m [execute eval] -t [tally code]
   -j (--js) [js file name]  Set the js file name to be converted.
   -m (--mode) [execute eval] Set the expansion condition.
-        When [true] Expand obfuscated information with eval
-        [false] Extract obfuscated information with location = `javascript:`
-        If not used, [true] is set.
+      When [true] Expand obfuscated information with eval
+      [false] Extract obfuscated information with location = `javascript:`
+      If not used, [true] is set.
   -t (--tally) [tally code]  Set tally code.
-        html side js call (<script src='target js'></script>)
-          <script> var _$tallyCode = 'tally code'; </script>
-        Define.
-        If you do not use it, please do not set it.
+      html side js call (<script src='target js'></script>)
+        <script> var _$tallyCode = 'tally code'; </script>
+      Define.
+      If you do not use it, please do not set it.
   -v (--version) Version information will be returned.
   -h (--help) Help information will be returned.
 
@@ -63,14 +63,18 @@ When [true] Expand obfuscated information with eval.
 [false] Extract obfuscated information with location = "javascript:".
 
 If this setting is omitted, it will be treated as [true].
-As a reason to do this setting, there are cases where you do not want to extract obfuscated information in eval, but you want to expand it with location = "javascript:".
+As a reason to do this setting, there are cases where you do not want to
+ extract obfuscated information in eval, but you want to expand it with 
+ location = "javascript:".
+
 For example, when an error occurs during eval execution.
 It is used in such a case.
 ```
 
 -t or --tally You can optionally set the `Tally code`.
 ```
-In that case, it is necessary to code as follows for the javascript caller to publish on the web.
+In that case, it is necessary to code as follows for the javascript 
+ caller to publish on the web.
 ```
 
 ```html

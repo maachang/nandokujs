@@ -40,14 +40,14 @@ nandokujsで難読化されたファイルは `[js file name].nan.js` と言う�
 $ nandokujs -j [js file name] -m [execute eval] -t [tally code]
   -j (--js) [js file name]  Set the js file name to be converted.
   -m (--mode) [execute eval] Set the expansion condition.
-        When [true] Expand obfuscated information with eval
-        [false] Extract obfuscated information with location = `javascript:`
-        If not used, [true] is set.
+      When [true] Expand obfuscated information with eval
+      [false] Extract obfuscated information with location = `javascript:`
+      If not used, [true] is set.
   -t (--tally) [tally code]  Set tally code.
-        html side js call (<script src='target js'></script>)
-          <script> var _$tallyCode = 'tally code'; </script>
-        Define.
-        If you do not use it, please do not set it.
+      html side js call (<script src='target js'></script>)
+        <script> var _$tallyCode = 'tally code'; </script>
+      Define.
+      If you do not use it, please do not set it.
   -v (--version) Version information will be returned.
   -h (--help) Help information will be returned.
 
@@ -64,14 +64,17 @@ $ nandokujs -j [js file name] -m [execute eval] -t [tally code]
 [false]の場合 location="javascript:"で難読化された情報を展開します。
 
 この設定を省略した場合は[true]扱いになります。
-この設定を行う理由として、eval で難読化された情報を展開させたくなくて location="javascript:" で展開させたい場合があると思います。
+この設定を行う理由として、eval で難読化された情報を展開させたくなくて
+ location="javascript:" で展開させたい場合があると思います。
+
 eval実行でエラーになる場合などです。
 そのような場合に利用します。
 ```
 
 -t or --tally 任意で `割符コード` を設定できます.
 ```
-その場合は、webに公開するjavascript呼び出し元に対して、以下のようにコーディングする必要があります.
+その場合は、webに公開するjavascript呼び出し元に対して、
+以下のようにコーディングする必要があります.
 ```
 
 ```html

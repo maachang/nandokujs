@@ -48,14 +48,14 @@
     console.log("$ nandokujs -j [js file name] -m [execute eval] -t [tally code]")
     console.log("  -j (--js) [js file name]  Set the js file name to be converted.")
     console.log("  -m (--mode) [execute eval] Set the expansion condition.");
-    console.log("        When [true] Expand obfuscated information with eval");
-    console.log("        [false] Extract obfuscated information with location = `javascript:`")
-    console.log("        If not used, [true] is set.")
+    console.log("      When [true] Expand obfuscated information with eval");
+    console.log("      [false] Extract obfuscated information with location = `javascript:`")
+    console.log("      If not used, [true] is set.")
     console.log("  -t (--tally) [tally code]  Set tally code.")
-    console.log("        html side js call (<script src='target js'></script>)");
-    console.log("          <script> var _$tallyCode = 'tally code'; </script>");
-    console.log("        Define.");
-    console.log("        If you do not use it, please do not set it.");
+    console.log("      html side js call (<script src='target js'></script>)");
+    console.log("        <script> var _$tallyCode = 'tally code'; </script>");
+    console.log("      Define.");
+    console.log("      If you do not use it, please do not set it.");
     console.log("  -v (--version) Version information will be returned.");
     console.log("  -h (--help) Help information will be returned.");
     console.log("");
