@@ -39,13 +39,15 @@ Files obfuscated by nandokujs are output as `[js file name].nan.js`.
 ```
 $ nandokujs -j [js file name] -m [execute eval] -t [tally code]
   -j (--js) [js file name]  Set the js file name to be converted.
-  -m (--mode) [execute eval] When [true] is set, when [false] is set in eval,
-                 it expands by location.
+  -m (--mode) [execute eval] Set the expansion condition.
+        When [true] Expand obfuscated information with eval
+        [false] Extract obfuscated information with location = `javascript:`
+        If not used, [true] is set.
   -t (--tally) [tally code]  Set tally code.
-                html side js call (<script src='target js'></script>)
-                  <script> var _$tallyCode = 'tally code'; </script>
-                Define.
-                If you do not use it, please do not set it.
+        html side js call (<script src='target js'></script>)
+          <script> var _$tallyCode = 'tally code'; </script>
+        Define.
+        If you do not use it, please do not set it.
   -v (--version) Version information will be returned.
   -h (--help) Help information will be returned.
 

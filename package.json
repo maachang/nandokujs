@@ -3,7 +3,7 @@
   "bin": {
     "nandokujs": "index.js"
   },
-  "version": "0.0.25",
+  "version": "0.0.26",
   "description": "nandokujs is an obfuscation tool for obfuscating javascript files to be published on the Web and making it difficult to analyze the contents.",
   "main": "index.js",
   "scripts": {
