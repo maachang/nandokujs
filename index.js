@@ -31,14 +31,12 @@
 
   // コマンド名を取得.
   var _commandName = function() {
-    var v = JSON.parse(file.readByString("./package.json"));
-    return v.name;
+    return "nandokujs";
   }
 
   // バージョン情報を出力.
   var _version = function() {
-    var v = JSON.parse(file.readByString("./package.json"));
-    return v.version;
+    return "0.0.28";
   }
 
   // ヘルプ情報.
