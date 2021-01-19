@@ -2,8 +2,8 @@
 
 /*!
  * nandokujs.
- * Copyright(c) 2019 maachang.
- * MIT Licensed
+ * Copyright(c) 2021 maachang.
+ * MIT Licensed.
  */
 
 (function() {
@@ -36,14 +36,14 @@
 
   // バージョン情報を出力.
   var _version = function() {
-    return "0.0.28";
+    return "0.0.29";
   }
 
   // ヘルプ情報.
   var _help = function() {
     console.log(_commandName() + " version: " + _version());
     console.log();
-    console.log("$ nandokujs -j [js file name] -m [execute eval] -t [tally code]")
+    console.log("$ nandokujs -j [js file name] -m [execute eval] -t [tally code] -o [out file]")
     console.log("  -j (--js) [js file name]  Set the js file name to be converted.")
     console.log("  -m (--mode) [execute eval] Set the expansion condition.");
     console.log("      When [true] Expand obfuscated information with eval");
@@ -54,6 +54,7 @@
     console.log("        <script> var _$tallyCode = 'tally code'; </script>");
     console.log("      Define.");
     console.log("      If you do not use it, please do not set it.");
+    console.log("  -o (--out) Set the output file name of nandokujs.");
     console.log("  -v (--version) Version information will be returned.");
     console.log("  -h (--help) Help information will be returned.");
     console.log("");
@@ -65,6 +66,7 @@
   var name = _args("-j") || _args("--js");
   var execEval = _args("-m") || _args("--mode");
   var tallyCode = _args("-t") || _args("--tally");
+  var outFile = _args("-o") || _args("--out");
   var versionFlg = _args("-v", true) || _args("--version", true);
   var helpFLg = _args("-h", true) || _args("--help", true);
 
@@ -120,7 +122,7 @@
   // $()処理難読化.
   var firstFunc = function() {
     // this['\\44\\104']=
-    var base = "var $D=(function(){var _A=['','\\x66\\x72\\x6F\\x6D\\x43\\x68\\x61\\x72\\x43\\x6F\\x64\\x65','\\x6C\\x65\\x6E\\x67\\x74\\x68', '\\x53\\x74\\x72\\x69\\x6e\\x67','\\x30\\x78\\x31\\x65'];return function(){var _B=arguments,_C=_A[0],_D=0;while(_D< _B[_A[2]]){_C+=this[_A[3]][_A[1]](_B[_D++]+(_A[4]|0))};return _C};})();";
+    var base = "var $D=(function(){var _A=['','\\x66\\x72\\x6F\\x6D\\x43\\x68\\x61\\x72\\x43\\x6F\\x64\\x65','\\x6C\\x65\\x6E\\x67\\x74\\x68','\\x53\\x74\\x72\\x69\\x6e\\x67','\\x30\\x78\\x31\\x65'];return function(){var _B=arguments,_C=_A[0],_D=0;while(_D< _B[_A[2]]){_C+=this[_A[3]][_A[1]](_B[_D++]+(_A[4]|0))};return _C};})();";
     var keys = ["_A", "_B", "_C", "_D"];
     var randKeys = [];
     var n, flg, i, j;
@@ -165,8 +167,14 @@
   buf += ");";
   buf += "})(this);";
 
+  // 出力先ファイル名をセット.
+  // 指定されてない場合は、変換ファイル名＋.nan.jsをファイル名とする.
+  if(!outFile || outFile == "") {
+    outFile = name + ".nan.js";
+  }
+
   // jsコード出力.
-  file.writeByString(name + ".nan.js", buf);
+  file.writeByString(outFile, buf);
 
   return true;
 })();

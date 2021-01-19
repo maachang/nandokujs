@@ -37,7 +37,7 @@ _
 nandokujsで難読化されたファイルは `[js file name].nan.js` と言う名前に出力されます.
 
 ```
-$ nandokujs -j [js file name] -m [execute eval] -t [tally code]
+$ nandokujs -j [js file name] -m [execute eval] -t [tally code] -o [out file]
   -j (--js) [js file name]  Set the js file name to be converted.
   -m (--mode) [execute eval] Set the expansion condition.
       When [true] Expand obfuscated information with eval
@@ -48,6 +48,7 @@ $ nandokujs -j [js file name] -m [execute eval] -t [tally code]
         <script> var _$tallyCode = 'tally code'; </script>
       Define.
       If you do not use it, please do not set it.
+  -o (--out) Set the output file name of nandokujs.
   -v (--version) Version information will be returned.
   -h (--help) Help information will be returned.
 
@@ -78,13 +79,12 @@ eval実行でエラーになる場合などです。
 ```
 
 ```html
-
 <script>
   var _$tallyCode = "指定した割符コード";
 </script>
 <script src="[nandokujsで難読化されたjavascript].nan.js"></script>
-
 ```
+-o or --out nandokujsの出力ファイル名を設定します.
 
 -v or --version バージョンを表示します.
 
@@ -107,7 +107,6 @@ $ nandokujs -j cbox-min.js -t test
 jsファイルを利用するhtmlに以下の呼び出し記載.
 
 ```html
-
 <script>
   var _$tallyCode = "test";
 </script>

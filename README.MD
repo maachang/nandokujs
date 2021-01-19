@@ -37,7 +37,7 @@ The usage can be confirmed by executing the command.
 Files obfuscated by nandokujs are output as `[js file name].nan.js`.
 
 ```
-$ nandokujs -j [js file name] -m [execute eval] -t [tally code]
+$ nandokujs -j [js file name] -m [execute eval] -t [tally code] -o [out file]
   -j (--js) [js file name]  Set the js file name to be converted.
   -m (--mode) [execute eval] Set the expansion condition.
       When [true] Expand obfuscated information with eval
@@ -48,15 +48,16 @@ $ nandokujs -j [js file name] -m [execute eval] -t [tally code]
         <script> var _$tallyCode = 'tally code'; </script>
       Define.
       If you do not use it, please do not set it.
+  -o (--out) Set the output file name of nandokujs.
   -v (--version) Version information will be returned.
   -h (--help) Help information will be returned.
 
  Files obfuscated by nandokujs are output as [js file name].nan.js.
-
 ```
 -j or --js Set the javascript file you want to convert.
 
 -m or --mode Set expansion conditions.
+
 ```
 When [true] Expand obfuscated information with eval.
 
@@ -78,13 +79,13 @@ In that case, it is necessary to code as follows for the javascript
 ```
 
 ```html
-
 <script>
   var _$tallyCode = "tally code";
 </script>
 <script src="[target javascript].nan.js"></script>
-
 ```
+
+-o or --out Set the output file name of nandokujs.
 
 -v or --version Display the version.
 
@@ -99,20 +100,16 @@ _
 Obfuscation with command.
 
 ```cmd
-
 $ nandokujs -j cbox-min.js -t test
-
 ```
 
 The following call is described in html using js file.
 
 ```html
-
 <script>
   var _$tallyCode = "test";
 </script>
 <script src="cbox-min.js.nan.js"></script>
-
 ```
 
 _
